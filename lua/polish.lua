@@ -82,3 +82,18 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
     end
   end
 })
+
+-- Принудительная установка рабочей директории
+vim.api.nvim_create_autocmd({ "VimEnter", "DirChanged" }, {
+  callback = function()
+    -- Получаем путь к текущему файлу
+    local current_file = vim.fn.expand('%:p')
+    if current_file ~= '' then
+      -- Устанавливаем директорию
+      local dir = vim.fn.fnamemodify(current_file, ':h')
+      vim.cmd('cd ' .. dir)
+      -- Обновляем neo-tree
+      vim.cmd('Neotree reveal')
+    end
+  end
+})
