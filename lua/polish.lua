@@ -62,3 +62,24 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.highlight.on_yank({ higroup = "IncSearch", timeout = 200 })
   end,
 })
+
+-- Автоматическое определение корневой директории проекта
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+  callback = function()
+    local path = vim.fn.expand('%:p:h')
+    local root_markers = { ".git", "Cargo.toml", ".gitignore", "package.json", "Makefile" }
+    
+    -- Ищем маркер корневой директории
+    local function find_root()
+      for _, dir in ipairs(vim.fn.finddir('.git', path .. ';', -1)) do
+        return vim.fn.fnamemodify(dir, ':h')
+      end
+      return path
+    end
+    
+    local root = find_root()
+    if root then
+      vim.cmd('cd ' .. root)
+    end
+  end
+})
