@@ -25,7 +25,7 @@ return {
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
-        relativenumber = true, -- Относительные номера строк
+        relativenumber = false, -- Относительные номера строк
         number = true, -- Показывать текущий номер строки
         numberwidth = 2, -- Минимальная ширина номеров строк
         signcolumn = "yes", -- Всегда показывать signcolumn
