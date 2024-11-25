@@ -5,7 +5,7 @@ return {
         follow_current_file = {
           enabled = true,
         },
-        bind_to_cwd = true,
+        bind_to_cwd = false,
         root_marker_list = { ".git", "Cargo.toml", ".gitignore", "package.json", "Makefile" },
       },
       window = {
