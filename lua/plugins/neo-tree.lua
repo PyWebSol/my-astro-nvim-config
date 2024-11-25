@@ -16,7 +16,6 @@ return {
           nowait = true,
         },
         mappings = {
-          ["<C-b>"] = "toggle",
           ["<cr>"] = "open",
           ["<esc>"] = "cancel",
           ["P"] = { "toggle_preview", config = { use_float = true } },
