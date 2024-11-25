@@ -85,6 +85,7 @@ return {
       v = {
         -- Маппинги для визуального режима
         ["<C-c>"] = { '"+y', desc = "Copy to clipboard" },
+        ["<C-x>"] = { '"+d', desc = "Cut to clipboard" },
       },
     },
   },
