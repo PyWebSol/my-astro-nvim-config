@@ -97,3 +97,14 @@ vim.api.nvim_create_autocmd({ "VimEnter", "DirChanged" }, {
     end
   end
 })
+
+-- Устанавливаем рабочую директорию на директорию текущего файла
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    local current_file = vim.fn.expand('%:p')
+    if current_file ~= '' then
+      local dir = vim.fn.fnamemodify(current_file, ':h')
+      vim.cmd('cd ' .. dir)
+    end
+  end
+})
