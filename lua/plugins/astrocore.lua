@@ -33,6 +33,8 @@ return {
         scrolloff = 8, -- Минимальное количество строк вокруг курсора
         spell = false, -- sets vim.opt.spell
         wrap = false, -- sets vim.opt.wrap
+        clipboard = "unnamedplus",  -- Использовать системный буфер обмена
+        fixendofline = true,       -- Добавлять новую строку в конец файла
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -70,12 +72,15 @@ return {
         [";"] = { ":", desc = "Enter command mode" },
         ["ж"] = { ":", desc = "Enter command mode (RU)" },
         ["<C-b>"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" },
+        ["p"] = { '"+p', desc = "Paste after cursor" },
+        ["P"] = { '"+P', desc = "Paste before cursor" },
       },
       i = {
         -- Маппинги для режима вставки
         ["<C-BS>"] = { "<C-w>", desc = "Delete word backward" },
         ["<C-h>"] = { "<C-w>", desc = "Delete word backward" }, -- Для терминалов, которые отправляют C-h вместо C-BS
         ["<C-v>"] = { "<C-r>+", desc = "Paste from clipboard" },
+        ["<C-S-v>"] = { '<C-r>+', desc = "Paste from clipboard (alternative)" },
       },
       v = {
         -- Маппинги для визуального режима
