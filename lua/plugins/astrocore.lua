@@ -25,10 +25,13 @@ return {
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
-        relativenumber = true, -- sets vim.opt.relativenumber
-        number = true, -- sets vim.opt.number
+        relativenumber = true, -- Относительные номера строк
+        number = true, -- Показывать текущий номер строки
+        numberwidth = 2, -- Минимальная ширина номеров строк
+        signcolumn = "yes", -- Всегда показывать signcolumn
+        cursorline = true, -- Подсветка текущей строки
+        scrolloff = 8, -- Минимальное количество строк вокруг курсора
         spell = false, -- sets vim.opt.spell
-        signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = false, -- sets vim.opt.wrap
       },
       g = { -- vim.g.<key>
